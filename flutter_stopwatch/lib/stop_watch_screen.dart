@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class StopWatchScreen extends StatefulWidget {
-  const StopWatchScreen({Key? key}) : super(key: key);
+  const StopWatchScreen({super.key});
 
   @override
   State<StopWatchScreen> createState() => _StopWatchScreenState();
@@ -60,12 +60,12 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
     String hundredth = '${_time % 100}'.padLeft(2, '0');
 
     return Scaffold(
-      backgroundColor: Color(0xff303134),
+      backgroundColor: const Color(0xff303134),
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Row(
+        title: const Row(
           children: [
-            const Text('Simple StopWatch ', style: TextStyle(color: Colors.white)),
+            Text('Simple StopWatch ', style: TextStyle(color: Colors.white)),
             Icon(Icons.timer_outlined, color: Colors.white,)
           ],
         ),
@@ -74,17 +74,17 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
         children: [
           const SizedBox(height: 120),
           Container(
-            padding: EdgeInsets.all(40),
+            padding: const EdgeInsets.all(40),
             decoration: BoxDecoration(
-              color: Color(0xff202124),
+              color: const Color(0xff202124),
               shape: BoxShape.circle,
-              border: Border.all(color: Color(0x0ff28292a), width: 4),
+              border: Border.all(color: const Color(0x0ff28292a), width: 4),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 16,
                 ),
                 Text(
@@ -92,16 +92,16 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                   style: const TextStyle(fontSize: 50, color: Colors.white),
                 ),
                 Text(
-                  hundredth, style: TextStyle(color: Colors.white),
+                  hundredth, style: const TextStyle(color: Colors.white),
                 )
               ],
             ),
           ),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           Container(
-            padding: EdgeInsets.only(top: 8, bottom: 8),
+            padding: const EdgeInsets.only(top: 8, bottom: 8),
             decoration: BoxDecoration(
-                color: Color(0xff202124),
+                color: const Color(0xff202124),
                 borderRadius: BorderRadius.circular(16)
             ),
             child: ConstrainedBox(
@@ -116,7 +116,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
                     children: _lapTimes.map((e) =>
                         Center(
                             child: Text(e,
-                                style: TextStyle(color: Colors.white)),
+                                style: const TextStyle(color: Colors.white)),
                             )
                         )
                         .toList()
