@@ -60,32 +60,70 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
     String hundredth = '${_time % 100}'.padLeft(2, '0');
 
     return Scaffold(
+      backgroundColor: Color(0xff303134),
       appBar: AppBar(
-        title: const Text('스톱워치'),
+        backgroundColor: Colors.black,
+        title: Row(
+          children: [
+            const Text('Simple StopWatch ', style: TextStyle(color: Colors.white)),
+            Icon(Icons.timer_outlined, color: Colors.white,)
+          ],
+        ),
       ),
       body: Column(
         children: [
-          const SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                '$sec',
-                style: const TextStyle(fontSize: 50),
-              ),
-              Text(
-                hundredth
-              )
-            ],
-          ),
-          SizedBox(
-            width: 100,
-            height: 200,
-            child: ListView(
-              children: _lapTimes.map((e) => Center(child: Text(e))).toList()
+          const SizedBox(height: 120),
+          Container(
+            padding: EdgeInsets.all(40),
+            decoration: BoxDecoration(
+              color: Color(0xff202124),
+              shape: BoxShape.circle,
+              border: Border.all(color: Color(0x0ff202124), width: 4),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                SizedBox(
+                  width: 16,
+                ),
+                Text(
+                  '$sec',
+                  style: const TextStyle(fontSize: 50, color: Colors.white),
+                ),
+                Text(
+                  hundredth, style: TextStyle(color: Colors.white),
+                )
+              ],
             ),
           ),
+          SizedBox(height: 40),
+          Container(
+            padding: EdgeInsets.only(top: 8, bottom: 8),
+            decoration: BoxDecoration(
+                color: Color(0xff202124),
+                borderRadius: BorderRadius.circular(16)
+            ),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxWidth: 300,
+                maxHeight: 200,
+              ),
+              child: Scrollbar(
+                child: ListView(
+                  shrinkWrap: true,
+                    reverse: true,
+                    children: _lapTimes.map((e) =>
+                        Center(
+                            child: Text(e,
+                                style: TextStyle(color: Colors.white)),
+                            )
+                        )
+                        .toList()
+                  ),
+              ),
+            ),
+            ),
           const Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
