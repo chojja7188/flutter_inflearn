@@ -78,7 +78,7 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
             decoration: BoxDecoration(
               color: Color(0xff202124),
               shape: BoxShape.circle,
-              border: Border.all(color: Color(0x0ff202124), width: 4),
+              border: Border.all(color: Color(0x0ff28292a), width: 4),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -150,7 +150,9 @@ class _StopWatchScreenState extends State<StopWatchScreen> {
               FloatingActionButton(
                 backgroundColor: Colors.green,
                 onPressed: () {
-                  _recordLapTime('$sec.$hundredth');
+                  setState(() {
+                    _recordLapTime('$sec.$hundredth');
+                  });
                 },
                 child: const Icon(Icons.add),
               ),
